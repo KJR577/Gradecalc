@@ -1,0 +1,159 @@
+:root {
+  --primary: #3b6fd4;
+  --primary-hover: #2f5bbf;
+  --bg: #f5f7fb;
+  --surface: #ffffff;
+  --border: #dce3ef;
+  --text-primary: #1a2540;
+  --text-secondary: #6a768f;
+  --shadow: 0 8px 30px rgba(30, 50, 100, 0.12);
+  --radius: 14px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 🔄 UPDATED: Stack header and card neatly on top of each other */
+.details-page {
+  min-height: 100vh;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column; /* 👈 Added to align layout elements vertically */
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* 🆕 ADDED: Greeting structure matched to perfectly align with your card width */
+.details-header {
+  width: 100%;
+  max-width: 550px; /* Matches your details-card max-width */
+  margin-bottom: 12px; /* Smooth gap before the card starts */
+  padding-left: 4px;  /* Slight indentation for professional visual alignment */
+}
+
+/* 🆕 ADDED: Text styling for the greeting */
+.greeting-msg {
+  font-size: 21px;
+  color: var(--text-primary);
+  letter-spacing: -0.2px;
+}
+
+.details-card {
+  width: 100%;
+  max-width: 550px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 35px;
+  box-shadow: var(--shadow);
+}
+
+.details-card h1 {
+  text-align: center;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  text-align: center;
+  color: var(--text-secondary);
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 7px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  outline: none;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.form-group input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(59, 111, 212, 0.12);
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background: var(--primary);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submit-btn:hover {
+  background: var(--primary-hover);
+}
+
+/* --- MEDIA QUERIES --- */
+
+@media (max-width: 768px) {
+  .details-card {
+    padding: 25px;
+  }
+
+  .details-card h1 {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 480px) {
+  .details-page {
+    padding: 15px;
+  }
+
+  /* Adjust header text rules for smaller viewports */
+  .details-header {
+    margin-bottom: 8px;
+  }
+
+  .greeting-msg {
+    font-size: 15px;
+  }
+
+  .details-card {
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .details-card h1 {
+    font-size: 22px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+  }
+
+  .form-group input {
+    padding: 11px;
+    font-size: 13px;
+  }
+
+  .submit-btn {
+    padding: 12px;
+    font-size: 14px;
+  }
+}

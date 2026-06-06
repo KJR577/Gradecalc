@@ -34,7 +34,6 @@ function Details() {
 
     console.log(formData);
 
-    // 🚀 PASSED: Sending the whole formData object into route state
     navigate("/calculator", {
       state: { studentInfo: formData }
     });

@@ -8,18 +8,17 @@ function Calculator() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Extract all profile fields sent from the Details page route state
+
   const student = location.state?.studentInfo || {};
   const name = student.name || "Student";
   const dno = student.dno || "N/A";
   const department = student.department || "N/A";
   const semester = student.semester || "N/A";
-  const degree = student.degree || "UG"; // Defaults to UG if omitted
+  const degree = student.degree || "UG"; 
 
-  // Normalize degree indicator for structural evaluation
   const isPG = degree.trim().toUpperCase() === "PG";
 
-  // ─── STATE MANAGEMENT ───
+  
   const [sgpaRows, setSgpaRows] = useState([
     { id: 1, subject: "", cia: "", sem: "", credit: "", total: "", grade: "", gp: "" },
     { id: 2, subject: "", cia: "", sem: "", credit: "", total: "", grade: "", gp: "" },
@@ -35,7 +34,7 @@ function Calculator() {
   const [finalSGPA, setFinalSGPA] = useState(null);
   const [finalCGPA, setFinalCGPA] = useState(null);
 
-  // ─── DYNAMIC GRADING CONDITION BASED ON DEGREE ───
+
   const getGrade = (mark) => {
     if (mark >= 90) return { grade: "O", gp: 10 };
     if (mark >= 80) return { grade: "A+", gp: 9 };
@@ -43,31 +42,28 @@ function Calculator() {
     if (mark >= 60) return { grade: "B", gp: 7 };
     if (mark >= 50) return { grade: "C+", gp: 6 };
     
-    // If the program is PG, 50 is the passing point. Anything less is RA.
+   
     if (isPG) {
       return { grade: "RA", gp: 0 };
     }
 
-    // UG evaluation threshold (Pass mark is 40)
+    
     if (mark >= 40) return { grade: "C", gp: 5 };
     return { grade: "RA", gp: 0 };
   };
 
-  // ─── HANDLING SGPA UPDATES ───
-  // ─── HANDLING SGPA UPDATES ───
+
   const handleSgpaChange = (id, field, value) => {
     setSgpaRows((prevRows) =>
       prevRows.map((row) => {
         if (row.id === id) {
           const updatedRow = { ...row, [field]: value };
 
-          // Compute raw marks conversion automatically
           if (field === "cia" || field === "sem") {
             const ciaNum = Number(updatedRow.cia) || 0;
             const semNum = Number(updatedRow.sem) || 0;
             
-            // FIX: Average the two scores if both are entered out of 100
-            // Change this calculation if your system uses a different weight split (e.g., 40/60)
+          
             const total = ciaNum && semNum ? Math.round((ciaNum + semNum) / 2) : (ciaNum + semNum);
             const { grade, gp } = getGrade(total);
 
@@ -120,7 +116,6 @@ function Calculator() {
     setFinalSGPA(sgpa);
   };
 
-  // ─── HANDLING CGPA UPDATES ───
   const handleCgpaChange = (id, field, value) => {
     setCgpaRows((prevRows) =>
       prevRows.map((row) => (row.id === id ? { ...row, [field]: value } : row))
@@ -156,7 +151,6 @@ function Calculator() {
     alert(`Your CGPA is ${cgpa}`);
   };
 
-  // ─── DOWNLOAD PERFORMANCE REPORT PDF ───
   const downloadPDF = () => {
     const doc = new jsPDF();
 

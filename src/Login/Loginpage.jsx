@@ -16,7 +16,6 @@ function Loginpage() {
 
     let valid = true;
 
-    // 1. Name Validation
     if (!name) {
       nameErr.classList.add("visible");
       valid = false;
@@ -24,14 +23,13 @@ function Loginpage() {
       nameErr.classList.remove("visible");
     }
 
-    // 2. D Number Validation (Presence, Length & Format check)
-    // "24ucs554" has exactly 8 characters
+   
     if (!dno) {
       dnoErr.innerText = "Please enter your D Number.";
       dnoErr.classList.add("visible");
       valid = false;
     } else if (dno.length != 8) {
-      // 👈 CONDITION: Checks if the length is exactly 8
+      
       dnoErr.innerText = "D Number must be exactly 8 characters (e.g., 24ucs554).";
       dnoErr.classList.add("visible");
       valid = false;
@@ -39,7 +37,7 @@ function Loginpage() {
       dnoErr.classList.remove("visible");
     }
 
-    // 3. Navigation if valid
+
     if (valid) {
       navigate("/details", {
         state: {
@@ -52,7 +50,6 @@ function Loginpage() {
 
   return (
     <div className="login-page">
-      {/* HEADER */}
       <header className="site-header">
         <div className="header-inner">
           <a href="/" className="header-brand">
@@ -64,7 +61,6 @@ function Loginpage() {
         </div>
       </header>
 
-      {/* MAIN */}
       <main className="login-main">
         <div className="login-card">
           <div className="login-card-header">
@@ -93,7 +89,7 @@ function Loginpage() {
                 type="text"
                 placeholder="Enter your D Number (e.g., 24UCS554)"
                 autoComplete="username"
-                maxLength={8} // 👈 HTML constraint to prevent typing more than 8 characters
+                maxLength={8} 
               />
               <span id="dnoErr" className="error-msg">
                 Please enter your D Number.
@@ -114,7 +110,6 @@ function Loginpage() {
         </div>
       </main>
 
-      {/* FOOTER */}
       <footer className="site-footer">
         <div className="footer-inner">
           <p>© {new Date().getFullYear()} GradeCalc. All rights reserved.</p>

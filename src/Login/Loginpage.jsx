@@ -101,12 +101,7 @@ function Loginpage() {
             </button>
           </form>
 
-          <div className="login-footer-note">
-            Need help?{" "}
-            <a href="https://www.linkedin.com/in/kenvin-jose-roys577">
-              Contact support
-            </a>
-          </div>
+          
         </div>
       </main>
 

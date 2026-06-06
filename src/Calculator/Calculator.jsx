@@ -224,7 +224,7 @@ function Calculator() {
           <nav className="header-nav">
             <a href="/" className="active">Calculator</a>
             {/* UPDATED: Nav link now downloads your specific asset file directly */}
-            <a href="/CGPA Calculation reference Documentne.pdf" download="CGPA_Calculation_Reference_Guide.pdf">
+            <a href="\How GradeCalc Works.pdf" download="How GradeCalc Works.pdf">
               How It Works
             </a>
           </nav>

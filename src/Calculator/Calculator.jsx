@@ -231,8 +231,10 @@ function Calculator() {
           <button id="logout" onClick={() => navigate("/")}>Log out</button>
         </div>
       </header>
-
+ 
       <main className="main-content">
+        <h1 className="page-title">Grade Calculator</h1>
+        <p className="page-subtitle">Calculate your SGPA and CGPA with ease.</p>
         <div className="student-info">
           <div className="info-row">
             <p><strong>Hi</strong> {name} 👋</p>
@@ -245,28 +247,41 @@ function Calculator() {
           </div>
         </div>
 
-        <h1 className="page-title">Grade Calculator</h1>
-        <p className="page-subtitle">Calculate your SGPA and CGPA with ease.</p>
+       
 
         <div style={{ marginBottom: "20px" }}>
           <button className="download-btn" onClick={downloadPDF}>
             ↓ Download PDF Report
           </button>
         </div>
+           <div class="note-container">
+            <b>NOTE : </b>
+  <p>
+     For course credits, you may use your syllabus PDF or
+    <a
+      href="https://www.sjctni.edu/Courses/Syllabus.jsp?&bredcom=%3Ca%20href=/%3EHome%3C/a%3E%20|%20Academics%20|%20Syllabus"
+    >
+      Download Syllabus PDF
+    </a>.
+    Please refer to the course credits listed in your syllabus PDF.
+  </p><br />
 
-        {/* SGPA Section */}
+  <p>
+    For more clarification, please download this PDF:
+    <a
+      href="/CGPA Calculation reference Documentne.pdf"
+      download="CGPA_Calculation_Reference_Guide.pdf"
+    >
+      Download Instructions
+    </a>
+  </p>
+</div>
+
         <div className="section-card">
           <div className="section-heading">
             SGPA Calculator <span className="badge">{degree} Mode</span>
           </div>
-          <div>
-            <p>
-              <b>NOTE:</b> For course credits, you may use your syllabus PDF or  
-              <a href="https://www.sjctni.edu/Courses/Syllabus.jsp?&bredcom=%3Ca%20href=/%3EHome%3C/a%3E%20|%20Academics%20|%20Syllabus" > Download Syllabus PDF</a>. 
-              Please refer to the course credits listed in your syllabus PDF.
-            </p>
-            <p>For more Clarification, please Download this PDF: <a href="/CGPA Calculation reference Documentne.pdf" download="CGPA_Calculation_Reference_Guide.pdf">Download Instructions</a></p>
-          </div>
+      
 
           <table id="table1">
             <thead>
@@ -399,6 +414,11 @@ function Calculator() {
           <div id="result2" className="result-container">
             Your CGPA is: <strong>{finalCGPA !== null ? finalCGPA : "0.00"}</strong>
           </div>
+        </div>
+        <div style={{ marginBottom: "20px" }}>
+          <button className="download-btn" onClick={downloadPDF}>
+            ↓ Download PDF Report
+          </button>
         </div>
       </main>
 

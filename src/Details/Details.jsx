@@ -18,10 +18,13 @@ function Details() {
   });
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+      ...(name === "degree" ? { semester: "" } : {}),
+    }));
   };
 
   const handleSubmit = () => {
@@ -35,19 +38,26 @@ function Details() {
     console.log(formData);
 
     navigate("/calculator", {
-      state: { studentInfo: formData }
+      state: { studentInfo: formData },
     });
   };
 
+  const semesterOptions =
+    formData.degree === "PG"
+      ? [1, 2, 3, 4]
+      : [1, 2, 3, 4, 5, 6];
+
   return (
     <div className="details-page">
-      <header className="details-header">
-        
-      </header>
+      <header className="details-header"></header>
 
       <div className="details-card">
-        <p className="greeting-msg"><b>👋 HI,{passedName || "Student"}</b></p>
+        <p className="greeting-msg">
+          <b>👋 HI,{passedName || "Student"}</b>
+        </p>
+
         <h1>Student Details</h1>
+
         <p className="subtitle">
           Fill in your academic information before proceeding.
         </p>
@@ -86,26 +96,6 @@ function Details() {
         </div>
 
         <div className="form-group">
-          <label>Semester</label>
-          <input
-            type="number"
-            name="semester"
-            placeholder="Enter your semester"
-            list="sem"
-            value={formData.semester}
-            onChange={handleChange}
-          />
-          <datalist id="sem">
-            <option value="1" />
-            <option value="2" />
-            <option value="3" />
-            <option value="4" />
-            <option value="5" />
-            <option value="6" />
-          </datalist>
-        </div>
-
-        <div className="form-group">
           <label>Degree</label>
           <input
             type="text"
@@ -118,6 +108,23 @@ function Details() {
           <datalist id="pro">
             <option value="UG" />
             <option value="PG" />
+          </datalist>
+        </div>
+
+        <div className="form-group">
+          <label>Semester</label>
+          <input
+            type="number"
+            name="semester"
+            placeholder="Enter your semester"
+            list="sem"
+            value={formData.semester}
+            onChange={handleChange}
+          />
+          <datalist id="sem">
+            {semesterOptions.map((sem) => (
+              <option key={sem} value={sem} />
+            ))}
           </datalist>
         </div>
 

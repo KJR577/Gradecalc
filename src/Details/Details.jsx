@@ -74,11 +74,11 @@ function Details() {
         </div>
 
         <div className="form-group">
-          <label>D Number</label>
+          <label>Registration Number</label>
           <input
             type="text"
             name="dno"
-            placeholder="Enter your D Number"
+            placeholder="Enter your Registration Number"
             value={formData.dno}
             onChange={handleChange}
           />

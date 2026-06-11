@@ -25,7 +25,7 @@ function Loginpage() {
 
    
     if (!dno) {
-      dnoErr.innerText = "Please enter your D Number.";
+      dnoErr.innerText = "Please enter your Registration Number.";
       dnoErr.classList.add("visible");
       valid = false;
     } else if (dno.length != 8) {
@@ -83,16 +83,16 @@ function Loginpage() {
             </div>
 
             <div className="form-group">
-              <label htmlFor="dno">D Number</label>
+              <label htmlFor="dno">Registration Number</label>
               <input
                 id="dno"
                 type="text"
-                placeholder="Enter your D Number (e.g., 24UCS554)"
+                placeholder="Enter your Registration Number (e.g., 24UCS554)"
                 autoComplete="username"
                 maxLength={8} 
               />
               <span id="dnoErr" className="error-msg">
-                Please enter your D Number.
+                Please enter your Registration Number.
               </span>
             </div>
 

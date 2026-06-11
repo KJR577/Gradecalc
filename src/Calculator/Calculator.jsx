@@ -161,7 +161,7 @@ function Calculator() {
     doc.setFontSize(11);
     doc.setFont("helvetica", "normal");
     doc.text(`Name: ${name}`, 14, 28);
-    doc.text(`D Number: ${dno}`, 14, 35);
+    doc.text(`Registration Number: ${dno}`, 14, 35);
     doc.text(`Degree: ${degree}`, 110, 28);
     doc.text(`Department: ${department}`, 110, 35);
     doc.text(`Current Semester: ${semester}`, 14, 42);
@@ -238,7 +238,7 @@ function Calculator() {
         <div className="student-info">
           <div className="info-row">
             <p><strong>Hi</strong> {name} 👋</p>
-            <p><strong>D Number:</strong> {dno}</p>
+            <p><strong>Registration Number:</strong> {dno}</p>
           </div>
           <div className="info-row sub-details">
             <p><strong>Degree:</strong> {degree}</p>
